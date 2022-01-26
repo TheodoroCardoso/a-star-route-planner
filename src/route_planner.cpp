@@ -101,5 +101,14 @@ void RoutePlanner::AStarSearch() {
     RouteModel::Node *current_node = nullptr;
 
     // TODO: Implement your solution here.
-
+    open_list.push_back(start_node);
+    while (open_list.size() > 0){
+        current_node = NextNode();
+        if (current_node == end_node){ 
+            m_Model.path = ConstructFinalPath(current_node);
+            break;
+        }
+        AddNeighbors(current_node);        
+    }
+    std::cout << "No Path Found!" << std::endl;
 }
