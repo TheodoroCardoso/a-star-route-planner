@@ -36,7 +36,7 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
     current_node->FindNeighbors();
     for (auto node : current_node->neighbors){
         node->parent = current_node;
-        node->g_value = current_node->g_value + node->distance(*current_node);
+        node->g_value = current_node->g_value + current_node->distance(*node);
         node->h_value = CalculateHValue(node);
         open_list.push_back(node);
         node->visited = true;
@@ -52,8 +52,8 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
 // - Return the pointer.
 
 bool Compare(const RouteModel::Node *node1, const RouteModel::Node *node2) {
-  int f1 = node1->g_value + node1->h_value; // f1 = g1 + h1
-  int f2 = node2->g_value + node2->h_value; // f2 = g2 + h2
+  float f1 = node1->g_value + node1->h_value; // f1 = g1 + h1
+  float f2 = node2->g_value + node2->h_value; // f2 = g2 + h2
   return f1 > f2; 
 }
 
@@ -101,6 +101,7 @@ void RoutePlanner::AStarSearch() {
     RouteModel::Node *current_node = nullptr;
 
     // TODO: Implement your solution here.
+    start_node->visited = true;
     open_list.push_back(start_node);
     //std::cout << "Start = ( " << start_node->x << " , " << start_node->y << " )" << std::endl;
     //std::cout << "End = ( " << end_node->x << " , " << end_node->y << " )" << std::endl;
