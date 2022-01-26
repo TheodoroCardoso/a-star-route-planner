@@ -59,9 +59,9 @@ int main(int argc, const char **argv)
 
     float start_x, start_y, end_x, end_y;
     std::cout << "Please input the starting position (x, y)" << std::endl;
-    cin >> start_x >> start_y;
+    std::cin >> start_x >> start_y;
     std::cout << "Please input the goal position (x, y)" << std::endl;
-    cin >> end_x >> end_y;
+    std::cin >> end_x >> end_y;
 
     // Build Model.
     RouteModel model{osm_data};
