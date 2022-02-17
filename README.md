@@ -1,8 +1,13 @@
 # Route Planning Project
 
-This repo contains the starter code for the Route Planning project.
+This is my first Udacity C++ Software Engineer Nanodegree program project. It is very similar to Google Maps Directions function.
 
-<img src="map.png" width="600" height="450" />
+A* search algorithm is implemented using OpenStreetMap data to find the optimal path between two points on the map and display it using IO2D library.
+
+On the picture below you can see the user input and the resulting path being displayed on the map.
+
+
+<img src="map.png"/>
 
 ## Cloning
 
